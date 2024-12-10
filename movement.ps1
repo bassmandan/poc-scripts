@@ -1,4 +1,4 @@
-$domain = "www.internetbadguys.com"
+$domain = "examplebotnetdomain.com"
 $nslookupResult = nslookup $domain
 
 # Output the results of nslookup
